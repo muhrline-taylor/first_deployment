@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style1.css' %}">
+    <title>Trip Buddy Home</title>
+</head>
+<body>
+    <div class="header">
+        <h1>Welcome to Trip Buddy!</h1>
+    </div><!--end header-->
+    <div class="left">
+        <h2>Register</h2>
+        {% if messages %}
+            <ul>
+            {% for message in messages %}
+                <li>{{message}}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+        <form action="/register" method="POST">
+            {% csrf_token %}
+            <p>First Name:<input type="text" name="form_fname_register"></p>
+            <p>Last Name:<input type="text" name="form_lname_register"></p>
+            <p>Email:<input type="text" name="form_email_register"></p>
+            <p>Password:<input type="text" name="form_pw1_register"></p>
+            <p>Confirm PW:<input type="text" name="form_pw2_register"></p>
+            <button type="submit">Register</button>
+        </form>
+    </div><!--end left-->
+    <div class="right">
+        <h2>Log In</h2>
+        <form action="/login" method="POST">
+            {% csrf_token %}
+            <p>Email:<input type="text" name="form_email_login"></p>
+            <p>Password:<input type="text" name="form_pw_login"></p>
+            <button type="submit">Log In</button>
+        </form>
+    </div><!--end right-->
+</body>
+</html>

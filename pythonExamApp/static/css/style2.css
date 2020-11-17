@@ -1,0 +1,35 @@
+body {
+    width: 30%;
+}
+
+h2 {
+    max-width: 200px;
+}
+
+.header {
+    height: 100px;
+    width: 78%;
+}
+
+.left {
+    height: 500px;
+    width: 400px;
+    padding-left: 50px;
+}
+
+input {
+    float: right;
+}
+
+button {
+    float: right;
+    margin-right: 200px;
+}
+
+li {
+    color: red;
+}
+
+a {
+    float: right;
+}

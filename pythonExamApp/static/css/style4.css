@@ -1,0 +1,9 @@
+body {
+    height: 700px;
+    width: 700px;
+    border: dotted black;
+}
+
+a {
+    float: right;
+}

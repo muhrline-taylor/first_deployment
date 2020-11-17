@@ -1,0 +1,43 @@
+body {
+    width: 75%;
+    display: inline-block;
+}
+
+.header {
+    width: 718px;
+    height: 100px;
+}
+
+.left {
+    height: 500px;
+    width: 300px;
+    display: inline-block;
+    float: left;
+}
+
+.right {
+    height: 500px;
+    width: 300px;
+    display: inline-block;
+    margin-left: 100px;
+}
+
+h1 {
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
+}
+
+input {
+    float: right;
+}
+
+li {
+    color: red;
+}
+
+button {
+    margin-left: 50%;
+}

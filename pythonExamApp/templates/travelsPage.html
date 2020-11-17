@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style3.css' %}">
+    <title>Travel Dashboard</title>
+</head>
+<body>
+    <h1>Welcome {{thisUser.first_name}}!</h1><br>
+    <h2>Your Trips</h2>
+    <table>
+        <th>Description</th>
+        <th>Travel Start Date</th>
+        <th>Travel End Date</th>
+        <th>Plan</th>
+        <th>Action</th>
+        {% for trip in userTrips %}
+            <tr class="darken">
+                <td><a href="/view/{{trip.id}}">{{trip.destination}}</a></td>
+                <td>{{trip.start_date}}</td>
+                <td>{{trip.end_date}}</td>
+                <td>{{trip.description}}</td>
+                <td><a href="/removeTrip/{{trip.id}}">Cancel</a>
+                    {% if trip.creator == thisUser.first_name %}
+                    <a href="/deleteTrip/{{trip.id}}">Delete</a>
+                    {% endif %}
+                </td>
+            </tr>
+        {% endfor %}
+    </table><!--end table 1--><br>
+    <hr>
+    <div class="slide_down"></div>
+    <h2>Other Trips</h2>
+    <table>
+        <th>Description</th>
+        <th>Travel Start Date</th>
+        <th>Travel End Date</th>
+        <th>Plan</th>
+        <th>Do You Want to Join?</th>
+        {% for trip in nonUserTrips %}
+            <tr class="darken">
+                <td><a href="/view/{{trip.id}}">{{trip.destination}}</a></td>
+                <td>{{trip.start_date}}</td>
+                <td>{{trip.end_date}}</td>
+                <td>{{trip.description}}</td>
+                <td><a href="/joinTrip/{{trip.id}}">Join</a></td>
+            </tr>
+        {% endfor %}
+    </table><br><br>
+    <a href="/addTrip">Add New Trip</a>
+    <a style="float: right;" href="/logout">Logout</a>
+</body>
+</html>

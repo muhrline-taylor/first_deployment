@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style2.css' %}">
+    <title>Add a Trip</title>
+</head>
+<body>
+    <div class="header">
+        <a href="/travels">Back</a><br>
+        <a href="/logout">Logout</a>
+        <h2>Add a Trip</h2>
+    </div>
+    <div class="left">
+        {% if messages %}
+            <ul>
+                {% for message in messages %}
+                    <li>{{message}}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        <form action="/registerTrip" method="POST">
+            {% csrf_token %}
+            <p>Destination:<input type="text" name="trip_destination_register"></p>
+            <p>Description:<input style="height: 50px;" type="text" name="trip_description_register"></p><br>
+            <p>Travel Date From:<input type="date" name="trip_start_register"></p>
+            <p>Travel Date To:<input type="date" name="trip_end_register"></p>
+            <button type="submit">Submit</button>
+        </form>
+    </div><!--end left-->
+</body>
+</html>
